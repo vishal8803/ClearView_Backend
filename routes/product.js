@@ -17,6 +17,19 @@ router.post('/insertProduct',upload.single('picture'), function(req, res, next) 
   })
 });
 
+router.post('/fetchOurRecommondations',function(req,res){
+    pool.query('select * from product where status=?',[req.body.status],function(error,result){
+        if(error)
+    {
+        res.status(500).json([]);
+    }else
+    {
+        console.log(result)
+        res.status(200).json({data:result});
+    }
+    })
+})
+
 
 router.post('/fetchAllProductByGenderAndId', function(req, res) {
     pool.query('select p.*, (select categoryname from categories where categoryid = p.categoryid )as categoryname,(select frametypename from frametypes where frameid =p.frameid )as frametypename,(select materialname from material where matarialid=p.materialid)as materialname,(select shapename from shapes where shapeid = p.shapeid)as shapename from product  as p where p.type=? and p.categoryid=?',[req.body.gender,req.body.categoryid],function(error,result){
