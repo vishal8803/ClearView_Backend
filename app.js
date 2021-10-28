@@ -16,8 +16,10 @@ var materialRouter = require('./routes/material');
 var priceRouter = require('./routes/price');
 var adminRouter = require('./routes/admin');
 var productRouter = require('./routes/product')
-var finalProductRouter = require('./routes/finalproduct')
-var homePagePictureRouter = require('./routes/HomePagePicture')
+var finalProductRouter = require('./routes/finalproduct');
+var homePagePictureRouter = require('./routes/HomePagePicture');
+var userDetailRouter = require('./routes/userDetails');
+var smsapiRouter = require('./routes/smsapi');
 
 var app = express();
 
@@ -44,7 +46,9 @@ app.use('/price' , priceRouter);
 app.use('/admin' , adminRouter);
 app.use('/product',productRouter);
 app.use('/finalproduct',finalProductRouter);
-app.use('/homePagePicture',homePagePictureRouter)
+app.use('/homePagePicture',homePagePictureRouter);
+app.use('/userDetails',userDetailRouter);
+app.use('/sendsms',smsapiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
