@@ -20,6 +20,7 @@ var finalProductRouter = require('./routes/finalproduct');
 var homePagePictureRouter = require('./routes/HomePagePicture');
 var userDetailRouter = require('./routes/userDetails');
 var smsapiRouter = require('./routes/smsapi');
+var userAddressRouter = require('./routes/userAddress');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.use('/finalproduct',finalProductRouter);
 app.use('/homePagePicture',homePagePictureRouter);
 app.use('/userDetails',userDetailRouter);
 app.use('/sendsms',smsapiRouter);
+app.use('/userAddress',userAddressRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

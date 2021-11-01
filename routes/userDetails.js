@@ -12,7 +12,7 @@ router.post('/checkMobileNumber', function(req,res){
             console.log(req.body.mobileNum)
             if(result.length==1)
             {
-                res.status(200).json({result:true})
+                res.status(200).json({result:true,data:result})
             }else
             {
                 res.status(200).json({result:false})
@@ -28,7 +28,7 @@ router.post('/insertUser',function(req,res){
             res.status(500).json([]);
         }else
         {
-            var body = {email:req.body.email,mobilenum:req.body.mobileNum,username:req.body.username,password:req.body.password}
+            var body = {email:req.body.email,mobileNum:req.body.mobileNum,username:req.body.username,password:req.body.password}
             res.status(200).json({result:true,data:body})
         }
     })
